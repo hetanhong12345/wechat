@@ -13,7 +13,7 @@
   "tabBar":{
     "color":"#999",
     "selectedColor":"#00beff",
-    "backgroungColoe":"#f7f7f7",
+    "backgroungColor":"#f7f7f7",
     "borderStyle:":"#ffffff",
     "position":"bottom",
     "list":[{
