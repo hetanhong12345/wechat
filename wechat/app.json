@@ -1,12 +1,32 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/my/my"
   ],
   "window":{
+    "backgroundColor":"#00beff",
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#00beff",
+    "navigationBarTitleText": "魔方网聘",
+    "navigationBarTextStyle":"#fff"
+  },
+  "tabBar":{
+    "color":"#999",
+    "selectedColor":"#00beff",
+    "backgroungColoe":"#f7f7f7",
+    "borderStyle:":"#ffffff",
+    "position":"bottom",
+    "list":[{
+      "pagePath":"pages/index/index",
+      "text":"现场面试",
+      "iconPath":"images/tool-offline-default.png",
+      "selectedIconPath":"images/tool-offline-active.png"
+    },{
+      "pagePath":"pages/my/my",
+      "text":"我的",
+      "iconPath":"images/tool-my-default.png",
+      "selectedIconPath":"images/tool-my-active.png"
+    }]
   }
+
 }

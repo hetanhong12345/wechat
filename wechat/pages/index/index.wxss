@@ -1,21 +1,97 @@
 /**index.wxss**/
-.userinfo {
+.head{
+  height: 44px;
+  color: #00beff;
+  background: #fff;
+  line-height: 44px;
+  font-size: 18px;
+  text-align: center;
+  flex: 0;
+}
+.job-list{
+  margin-top: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+}
+.job-item{
+  padding: 5px 15px 10px ;
+  margin-top: 10px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
+.container{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.scroll-container{
+  height: 100%;
 }
+.item-header{
+  display: flex;
+  font-size: 18px;
+}
+.job-name{
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 60%;
+  flex: 1;
+  line-height: 30px;
+}
+.job-salary{
+  text-align: right;
+  color: #ff6500;
+  flex: 1;
+  line-height: 30px;
+}
+.item-content{
+  box-sizing: border-box;
+  padding: 10px 0;
+  display: flex;
+}
+.content-left{
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+}
+.content-right{
+  padding-left: 10px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.job-company{
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  display: block;
+}
+.job-location{
+  display: block;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+.advantage{
+  word-break: break-all;
+  color: #666;
+  font-size: 16px;
+  border-bottom: 1rpx solid #eee;
+  padding-bottom: 10px;
 
-.usermotto {
-  margin-top: 200px;
+}
+.interview-time{
+  padding-top: 10px;
+  font-size: 16px;
+  color: #00beff;
 }

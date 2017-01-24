@@ -15,7 +15,13 @@ function formatNumber(n) {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-
+function query(obj) {
+  let result=[];
+  for(let key in obj){
+    result.push(`${key}=${encodeURIComponent(obj[key])}`);
+  }
+  return result.join('&');
+}
 module.exports = {
-  formatTime: formatTime
+  formatTime,query
 }

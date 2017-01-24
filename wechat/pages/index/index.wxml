@@ -1,11 +1,27 @@
 <!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <view   class="head">
+    北京
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-    <text>I am test</text>
-  </view>
+    <view class="job-list">
+        <scroll-view scroll-y="true"  class="scroll-container">
+            <view class="job-item" wx:for="{{lists}}" wx:for-item="item" wx:key="onsiteJobId">
+                <view class="item-header">
+                    <view class="job-name">{{item.onsiteJobName}}</view>
+                    <view class="job-salary"> ¥ {{item.minSalary}}-{{item.maxSalary}}</view>
+                </view>
+                <view class="item-content">
+                    <image class="content-left" src="{{item.iconUrl}}"></image>
+                    <view class="content-right">
+                        <text class="job-company">{{item.onstieCustomerName}}</text>
+                        <text class="job-location">{{item.interviewLocation}}</text>
+                    </view>
+                </view>
+                <view class="advantage">{{item.onsiteJobAdvantage}}</view>
+                <view class="interview-time">面试时间：{{item.startTime}}</view>
+            </view>
+
+        </scroll-view>
+    </view>
+
 </view>

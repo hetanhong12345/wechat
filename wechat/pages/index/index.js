@@ -3,11 +3,13 @@
 
 let wechat = require('../../utils/wechat');
 let request = require('../../utils/fetch');
+let util =require('../../utils/util')
 const app = getApp();
+const serverUrl= 'https://mobile-application.mofanghr.com/offline/onsite-jobs/search';
 Page({
     data: {
         motto: 'Hello World',
-        userInfo: {}
+        lists:[]
     },
     //事件处理函数
     bindViewTap: function () {
@@ -18,9 +20,9 @@ Page({
     },
     onLoad: function () {
         console.log('onLoad')
-        wx.clearStorageSync();
+//      wx.clearStorageSync();
         //调用应用实例的方法获取全局数据
-        wechat.getStorage('userInfo')
+        wechat.getStorage('mfUserInfo')
             .then((userInfo) => {
                 this.setData({
                     userInfo: userInfo
@@ -28,33 +30,48 @@ Page({
             }).catch(() => {
             this.login();
         });
-        let params = {
-            account: 13720057698,
-            password: 'hxx123456'
-        }
-        wx.checkSession({
-            success: (suc) => {
-                console.log(suc)
-            },
-            fail: (err => {
-                console.log(err)
-            })
-        })
-        request.get('user/loginByPassword', params)
-            .then((res) => {
-                console.log(res);
-            }).catch(err => console.log(err))
-    },
+        this.getList()
+
+   },
+  getList(){
+      let params={
+        start:0,
+        count:20,
+        province:'北京',
+        cicyCode:'03'
+      }
+      let  that =this;
+   wx.request({
+     url:`${serverUrl}?${util.query(params)}`,
+     type:'GET',
+     header: {'Content-Type': 'application/x-www-form-urlencoded'},
+     success:function (res) {
+       console.log(res)
+       let {data} =res;
+       that.setData({
+         'lists':data
+       })
+     }
+   })
+  },
     login(){
-        return wechat.login()
-            .then((res) => {
+      let params = {
+        account: 13720057698,
+        password: 'hxx123456'
+      }
+
+      request.get('user/loginByPassword', params)
+              .then((res) => {
                 console.log(res);
-                return wechat.getUserInfo();
-            }).then(res => {
-                wechat.setStorage('userInfo', res.userInfo);
-                this.setData({
-                    userInfo: res.userInfo
-                })
-            })
+                if(res.statusCode==200){
+                  let {data} =res;
+                  if(data.code==200){
+                    wechat.setStorage('mfUserInfo',data.data)
+
+                  }
+
+
+                }
+              }).catch(err => console.log(err))
     }
 })
