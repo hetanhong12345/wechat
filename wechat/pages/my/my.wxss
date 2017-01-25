@@ -1,3 +1,63 @@
 .my{
-  display:flex;
+  position: relative;
+}
+.my-head{
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+}
+.my-info{
+  position: absolute;
+  display: flex;
+  bottom: 30px;
+  width: 100%;
+  padding: 0 15px;
+}
+.head{
+
+  height: 50px;
+  width: 50px;
+  border-radius: 4px;
+}
+.info{
+  padding-left: 15px;
+  line-height: 24px;
+  color: #fff;
+  flex: 1;
+}
+.info-name{
+  display: block;
+  font-size: 18px;
+}
+.info-status{
+  display: block;
+  font-size: 16px;
+}
+.content{
+  margin-top: 10px;
+}
+.list-item{
+  display: flex;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 15px;
+  background: #fff;
+}
+.list-item:first-child{
+  border-bottom: 1px solid #eee;
+}
+.item-left{
+  flex: 1;
+  text-align: left;
+}
+.item-right{
+  flex: 1;
+  text-align: right;
+}
+.item-img{
+  height: 14px;
+  width: 14px;
+  vertical-align: middle;
 }

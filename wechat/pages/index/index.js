@@ -8,15 +8,13 @@ const app = getApp();
 const serverUrl= 'https://mobile-application.mofanghr.com/offline/onsite-jobs/search';
 Page({
     data: {
-        motto: 'Hello World',
+        hidden: true,
         lists:[]
     },
     //事件处理函数
-    bindViewTap: function () {
+    jobTap: function (event) {
 
-        wx.navigateTo({
-            url: '../logs/logs'
-        })
+       console.log(event.currentTarget)
     },
     onLoad: function () {
         console.log('onLoad')
@@ -40,6 +38,9 @@ Page({
         province:'北京',
         cicyCode:'03'
       }
+      this.setData({
+        hidden:false
+      })
       let  that =this;
    wx.request({
      url:`${serverUrl}?${util.query(params)}`,
@@ -49,7 +50,8 @@ Page({
        console.log(res)
        let {data} =res;
        that.setData({
-         'lists':data
+         'lists':data,
+         hidden:true
        })
      }
    })

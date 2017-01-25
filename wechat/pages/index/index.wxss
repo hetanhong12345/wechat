@@ -9,10 +9,12 @@
   flex: 0;
 }
 .job-list{
-  margin-top: 10px;
+  position: absolute;
+  top: 54px;
+  bottom: 0;
   box-sizing: border-box;
-  display: flex;
-  flex: 1;
+
+
 }
 .job-item{
   padding: 5px 15px 10px ;
@@ -28,6 +30,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 
 }
 .scroll-container{

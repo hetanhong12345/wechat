@@ -3,9 +3,9 @@
   <view   class="head">
     北京
   </view>
-    <view class="job-list">
-        <scroll-view scroll-y="true"  class="scroll-container">
-            <view class="job-item" wx:for="{{lists}}" wx:for-item="item" wx:key="onsiteJobId">
+
+        <scroll-view scroll-y="true"  class="job-list" >
+            <view class="job-item" wx:for="{{lists}}" wx:for-item="item" data-job="{{item.onstieCustomerId}}" wx:key="onsiteJobId" bindtap="jobTap">
                 <view class="item-header">
                     <view class="job-name">{{item.onsiteJobName}}</view>
                     <view class="job-salary"> ¥ {{item.minSalary}}-{{item.maxSalary}}</view>
@@ -22,6 +22,7 @@
             </view>
 
         </scroll-view>
-    </view>
+
 
 </view>
+<loading hidden="{{hidden}}">正在加载...</loading>

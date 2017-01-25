@@ -1,3 +1,30 @@
 <view class="my">
-    <view>名字是{{userInfo.name}}</view>
+    <view class="my-head">
+    <image class="my-head" src="https://static1.mofanghr.com/mobile/img/my-default.png"></image>
+        <view class="my-info">
+            <image class="head" src="{{userInfo.avatar}}"></image>
+            <view class="info">
+                <text class="info-name">{{userInfo.name}}</text>
+                <text class="info-status">在职，暂无跳槽打算</text>
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="list-item">
+            <view class="item-left">
+                <image class="item-img" style="margin-right: 5px" src="/images/instent-icon.png"></image>
+                求职意向
+            </view>
+            <view class="item-right">java,c++
+                <image class="item-img" style="margin-left: 5px;width: 8px;height: 12px" src="/images/arr-right.png"></image></view>
+        </view>
+        <view class="list-item">
+            <view class="item-left">
+                <image class="item-img" style="margin-right: 5px" src="/images/resume-icon.png"></image>
+                我的简历
+            </view>
+            <view class="item-right">91%
+                <image class="item-img" style="margin-left: 5px;width: 8px;height: 12px" src="/images/arr-right.png"></image></view>
+        </view>
+    </view>
 </view>
