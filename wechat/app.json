@@ -1,10 +1,11 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/offlineJob/offlineJob"
   ],
   "window":{
-    "backgroundColor":"#00beff",
+    "backgroundColor":"#fff",
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#00beff",
     "navigationBarTitleText": "魔方网聘",
