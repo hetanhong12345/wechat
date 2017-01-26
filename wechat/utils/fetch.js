@@ -1,5 +1,5 @@
 const Promise = require('./bluebird');
-const URL = 'https://app-application.mofanghr.com';
+const URL = 'https://web-application.mofanghr.com/';
 
 /**
  * 抓取远端API的结构
@@ -14,7 +14,7 @@ let get = (path, params, data) => {
     return new Promise((resolve, reject) => {
         wx.request({
             type: 'GET',
-            url: `${URL}/${path}.json?platform=1201&version=2.2.0&params=${query}`,
+            url: `${URL}/${path}.json?&params=${query}`,
             data: Object.assign({}, data),
             header: {'Content-Type': 'application/x-www-form-urlencoded'},
             success: (res)=>{

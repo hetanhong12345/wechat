@@ -17,7 +17,7 @@ Page({
     console.log(event.currentTarget.dataset);
     let {jobId, jobTitle} = event.currentTarget.dataset;
     wx.navigateTo({
-      url: `../offlineJob/offlineJob?jobId=${jobId}&jobTitle=${jobTitle}`
+      url: `../onlineJob/onlineJob?jobId=${jobId}&jobTitle=${jobTitle}`
     })
   },
   onLoad: function () {
@@ -37,31 +37,28 @@ Page({
   },
   getList(){
     let params = {
-      start: 0,
-      count: 20,
-      province: '北京',
-      cicyCode: '03'
+      page: 0,
+      size: 15,
+      firstJobCode: '01',
+      appKey: 'web',
+      properties: 'updateTime$$companyLogo$$jobID$$jobName$$jobMinSalary$$jobMaxSalary$$workCharact$$jobLocation$$jobCity$$location$$minDegree$$minExp$$companyName$$companyID$$companyIndustry$$companyCharact$$companyScale'
     }
     this.setData({
       hidden: false
     })
-    let that = this;
-
-
-
-    wx.request({
-      url: `${serverUrl}?${util.query(params)}`,
-      type: 'GET',
-      header: {'Content-Type': 'application/x-www-form-urlencoded'},
-      success: function (res) {
-        console.log(res)
-        let {data} =res;
-        that.setData({
-          'lists': data,
-          hidden: true
-        })
-      }
-    })
+    request.get('job/getListByFirstJobFunc', params)
+            .then(res => {
+              console.log(res)
+              if (res.statusCode == 200) {
+                let {data} =res;
+                if (data.code == 200) {
+                  this.setData({
+                    lists: data.data.jobList,
+                    hidden: true
+                  })
+                }
+              }
+            })
   },
   login(){
     let params = {

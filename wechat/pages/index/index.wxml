@@ -1,25 +1,25 @@
 <!--index.wxml-->
 <view class="container">
   <view   class="head">
-    北京
+    技术
   </view>
 
         <scroll-view scroll-y="true"  class="job-list" >
-            <view class="job-item" wx:for="{{lists}}" wx:for-item="item" data-job-title="{{item.onsiteJobName}}"
-                  data-job-id="{{item.onstieCustomerId}}" wx:key="onsiteJobId" bindtap="jobTap">
+            <view class="job-item" wx:for="{{lists}}" wx:for-item="item" data-job-title="{{item.jobName}}"
+                  data-job-id="{{item.jobID}}" wx:key="onsiteJobId" bindtap="jobTap">
                 <view class="item-header">
-                    <view class="job-name">{{item.onsiteJobName}}</view>
-                    <view class="job-salary"> ¥ {{item.minSalary}}-{{item.maxSalary}}</view>
+                    <view class="job-name">{{item.jobName}}</view>
+                    <view class="job-salary"> ¥ {{item.jobMinSalary}}-{{item.jobMaxSalary}}K</view>
                 </view>
                 <view class="item-content">
-                    <image class="content-left" src="{{item.iconUrl}}"></image>
+                    <image class="content-left" src="{{item.companyLogo}}"></image>
                     <view class="content-right">
-                        <text class="job-company">{{item.onstieCustomerName}}</text>
-                        <text class="job-location">{{item.interviewLocation}}</text>
+                        <view class="job-company">{{item.companyName}}</view>
+                        <view class="job-location">{{item.location}}</view>
                     </view>
                 </view>
-                <view class="advantage">{{item.onsiteJobAdvantage}}</view>
-                <view class="interview-time">面试时间：{{item.startTime}}</view>
+                <view class="advantage">领导nice，发展空间大</view>
+                <view class="interview-time">面试时间：{{item.updateTime}}</view>
             </view>
 
         </scroll-view>

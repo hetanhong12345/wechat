@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/my/my",
-    "pages/offlineJob/offlineJob"
+    "pages/offlineJob/offlineJob",
+    "pages/onlineJob/onlineJob"
   ],
   "window":{
     "backgroundColor":"#fff",
@@ -19,7 +20,7 @@
     "position":"bottom",
     "list":[{
       "pagePath":"pages/index/index",
-      "text":"现场面试",
+      "text":"在线面试",
       "iconPath":"images/tool-offline-default.png",
       "selectedIconPath":"images/tool-offline-active.png"
     },{

@@ -1,0 +1,32 @@
+<view class="online-job">
+    <scroll-view scroll-y="true" class="content">
+        <view class="job-info">
+            <view class="job-name">{{job.jobName}}</view>
+            <view class="job-salary">{{job.jobMinSalary}}-{{job.jobMaxSalary}}K</view>
+        </view>
+        <view class="job-other-info">
+            <view class="job-flex" > <image class="job-img" src="/images/company-city.png"></image>{{job.jobCityDesc||'不限'}}</view>
+            <view class="job-flex"> <image class="job-img" src="/images/work-year.png"></image>{{job.minExpDesc||'不限'}}</view>
+            <view class="job-flex"> <image class="job-img" src="/images/degree.png"></image>{{job.minDegreeDesc||'不限'}}</view>
+
+
+        </view>
+        <view class="job-desc">
+            <view class="job-desc-header">职位描述</view>
+            <view class="job-desc-content">{{job.jobDesc}}</view>
+        </view>
+        <view class="job-desc">
+            <view class="job-desc-header">公司描述</view>
+            <view class="company-desc-content">
+                <view>公司规模：{{job.companyScaleDesc}}</view>
+                <view>公司全称：{{job.companyName}}</view>
+                <view>公司地址：{{job.location}}</view>
+
+            </view>
+        </view>
+    </scroll-view>
+    <view class="footer">
+        <button class="collect">添加收藏</button>
+        <button class="im">立即沟通</button>
+    </view>
+</view>
