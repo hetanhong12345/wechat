@@ -1,29 +1,35 @@
 <!--index.wxml-->
 <view class="container">
-  <view   class="head">
-    技术
-  </view>
 
-        <scroll-view scroll-y="true"  class="job-list" >
-            <view class="job-item" wx:for="{{lists}}" wx:for-item="item" data-job-title="{{item.jobName}}"
-                  data-job-id="{{item.jobID}}" wx:key="onsiteJobId" bindtap="jobTap">
-                <view class="item-header">
-                    <view class="job-name">{{item.jobName}}</view>
-                    <view class="job-salary"> ¥ {{item.jobMinSalary}}-{{item.jobMaxSalary}}K</view>
-                </view>
-                <view class="item-content">
-                    <image class="content-left" src="{{item.companyLogo}}"></image>
-                    <view class="content-right">
-                        <view class="job-company">{{item.companyName}}</view>
-                        <view class="job-location">{{item.location}}</view>
-                    </view>
-                </view>
-                <view class="advantage">领导nice，发展空间大</view>
-                <view class="interview-time">面试时间：{{item.updateTime}}</view>
+    <scroll-view  class="head" scroll-x="true" style="white-space: nowrap; display: flex">
+
+            <view class="{{currentValue.code==item.code?'head-active job-text':'job-text'}}"
+                  wx:for="{{jobList}}" wx:key="code" bindtap="bindChange" data-job="{{item}}">{{item.name}}</view>
+
+    </scroll-view>
+
+
+    <scroll-view scroll-y="true" class="job-list">
+        <view class="job-item" wx:for="{{lists}}" wx:for-item="item" data-job-title="{{item.jobName}}"
+              data-job-id="{{item.jobID}}" wx:key="jobID" bindtap="jobTap">
+            <view class="item-header">
+                <view class="job-name">{{item.jobName}}</view>
+                <view class="job-salary"> ¥ {{item.jobMinSalary}}-{{item.jobMaxSalary}}K</view>
             </view>
+            <view class="item-content">
+                <image class="content-left" src="{{item.companyLogo}}"></image>
+                <view class="content-right">
+                    <view class="job-company">{{item.companyName}}</view>
+                    <view class="job-location">{{item.location}}</view>
+                </view>
+            </view>
+            <view class="advantage">领导nice，发展空间大</view>
+            <view class="interview-time">面试时间：{{item.updateTime}}</view>
+        </view>
 
-        </scroll-view>
+    </scroll-view>
 
 
 </view>
-<loading hidden="{{hidden}}">正在加载...</loading>
+<loading hidden="{{hidden}}">{{error||'正在加载...'}}</loading>
+

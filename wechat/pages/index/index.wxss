@@ -1,12 +1,18 @@
 /**index.wxss**/
 .head{
   height: 44px;
-  color: #00beff;
+  color: #333;
   background: #fff;
   line-height: 44px;
   font-size: 18px;
   text-align: center;
-  flex: 0;
+}
+.head-active{
+  color: #00beff;
+}
+.job-text{
+  display: inline-block;
+  padding: 0 20px;
 }
 .job-list{
   position: absolute;

@@ -2,7 +2,7 @@
     <view class="my-head">
     <image class="my-head" src="https://static1.mofanghr.com/mobile/img/my-default.png"></image>
         <view class="my-info">
-            <image class="head" src="{{userInfo.avatar}}"></image>
+            <image class="head" src="{{userInfo.avatar}}?h=50&w=50"></image>
             <view class="info">
                 <text class="info-name">{{userInfo.name}}</text>
                 <text class="info-status">在职，暂无跳槽打算</text>

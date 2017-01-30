@@ -1,5 +1,6 @@
 .my{
   position: relative;
+  overflow-x: hidden;
 }
 .my-head{
   position: relative;
@@ -36,6 +37,7 @@
 }
 .content{
   margin-top: 10px;
+  overflow-x: hidden;
 }
 .list-item{
   display: flex;

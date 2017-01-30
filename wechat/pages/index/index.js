@@ -6,20 +6,41 @@ let request = require('../../utils/fetch');
 let util = require('../../utils/util')
 const app = getApp();
 const serverUrl = 'https://mobile-application.mofanghr.com/offline/onsite-jobs/search';
+let jobList = [{
+  code: '01',
+  name: '技术'
+}, {
+  code: '02',
+  name: '产品'
+}, {
+  code: '03',
+  name: '设计'
+}, {
+  code: '04',
+  name: '运营'
+}, {
+  code: '05',
+  name: '销售'
+}, {
+  code: '06',
+  name: '市场'
+}, {
+  code: '08',
+  name: '金融'
+}]
 Page({
   data: {
     hidden: true,
-    lists: []
-  },
-  //事件处理函数
-  jobTap: function (event) {
+    pickerHidden: true,
+    lists: [],
+    jobList,
+    currentValue: {
+      code: '01',
+      name: '技术'
+    }
 
-    console.log(event.currentTarget.dataset);
-    let {jobId, jobTitle} = event.currentTarget.dataset;
-    wx.navigateTo({
-      url: `../onlineJob/onlineJob?jobId=${jobId}&jobTitle=${jobTitle}`
-    })
   },
+
   onLoad: function () {
     console.log('onLoad')
 //      wx.clearStorageSync();
@@ -35,13 +56,16 @@ Page({
     this.getList()
 
   },
-  getList(){
+  getList(job){
     let params = {
       page: 0,
       size: 15,
       firstJobCode: '01',
       appKey: 'web',
       properties: 'updateTime$$companyLogo$$jobID$$jobName$$jobMinSalary$$jobMaxSalary$$workCharact$$jobLocation$$jobCity$$location$$minDegree$$minExp$$companyName$$companyID$$companyIndustry$$companyCharact$$companyScale'
+    }
+    if (job && job.code) {
+      params.firstJobCode = job.code;
     }
     this.setData({
       hidden: false
@@ -58,7 +82,11 @@ Page({
                   })
                 }
               }
-            })
+            }).catch(err => {
+      this.setData({
+        error: JSON.stringify(err)
+      })
+    })
   },
   login(){
     let params = {
@@ -79,5 +107,29 @@ Page({
 
               }
             }).catch(err => console.log(err))
+  },
+
+  bindChange(event){
+    console.log(event.currentTarget.dataset);
+    let {job} = event.currentTarget.dataset;
+    this.setData({
+      currentValue: job
+    });
+    this.getList(job);
+
+
+  },
+  //列表点击
+  jobTap: function (event) {
+
+    console.log(event.currentTarget.dataset);
+    let {jobId, jobTitle} = event.currentTarget.dataset;
+    wx.navigateTo({
+      url: `../onlineJob/onlineJob?jobId=${jobId}&jobTitle=${jobTitle}`
+    })
+  },
+  ensure(){
+    console.log(this.data.currentValue);
+
   }
 })
