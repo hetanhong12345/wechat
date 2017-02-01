@@ -34,6 +34,7 @@ Page({
     pickerHidden: true,
     lists: [],
     jobList,
+    scrollTop:0,
     currentValue: {
       code: '01',
       name: '技术'
@@ -78,7 +79,8 @@ Page({
                 if (data.code == 200) {
                   this.setData({
                     lists: data.data.jobList,
-                    hidden: true
+                    hidden: true,
+                    scrollTop:0
                   })
                 }
               }

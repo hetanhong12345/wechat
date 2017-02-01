@@ -1,3 +1,4 @@
+<import src="../../wxParse/wxParse.wxml"/>
 <view class="online-job">
     <scroll-view scroll-y="true" class="content">
         <view class="job-info">
@@ -13,7 +14,9 @@
         </view>
         <view class="job-desc">
             <view class="job-desc-header">职位描述</view>
-            <view class="job-desc-content">{{job.jobDesc}}</view>
+            <view class="job-desc-content">
+                <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+            </view>
         </view>
         <view class="job-desc">
             <view class="job-desc-header">公司描述</view>

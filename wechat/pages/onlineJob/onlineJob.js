@@ -1,5 +1,6 @@
 let wechat = require('../../utils/wechat')
 let request = require('../../utils/fetch');
+ let WxParse= require('../../wxParse/wxParse');
 
 Page({
   data: {
@@ -35,6 +36,8 @@ Page({
                   this.setData({
                     job: data.data
                   })
+                  let that =this;
+                  WxParse.wxParse('article', 'html', data.data.jobDesc, that, 5);
                 }
               }
 
