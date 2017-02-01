@@ -18,7 +18,7 @@
                 <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
             </view>
         </view>
-        <view class="job-desc">
+        <view class="job-desc" style="margin-bottom: 10px">
             <view class="job-desc-header">公司描述</view>
             <view class="company-desc-content">
                 <view>公司规模：{{job.companyScaleDesc}}</view>
